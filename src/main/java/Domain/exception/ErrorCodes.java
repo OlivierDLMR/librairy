@@ -1,4 +1,4 @@
-package Domain;
+package Domain.exception;
 
 public class ErrorCodes {
 

@@ -1,6 +1,8 @@
-package Domain;
+package Domain.exception;
 
-public class LibraryNotFoundException {
+import Domain.exception.ErrorCodes;
+
+public class LibraryNotFoundException extends RuntimeException{
 
     private static final long serialVersionUID =1L;
 
