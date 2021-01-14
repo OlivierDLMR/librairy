@@ -1,4 +1,4 @@
-package Domain;
+package Domain.Book;
 
 import javax.persistence.*;
 
