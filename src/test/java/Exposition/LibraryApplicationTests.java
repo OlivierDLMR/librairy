@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Optional;
 
+import Domain.Book.Book;
+import Domain.Book.LiteraryGenre;
 import Domain.Director;
 import Domain.Library;
 import Domain.Type;
@@ -31,6 +33,16 @@ class LibraryApplicationTests {
 
 	@Autowired
 	private LibraryDao libraryDao;
+
+
+	public static final Book DONQUIXOTE = new Book("Don Quixote", "Miguel de Cervantes", 200, LiteraryGenre.TRAGEDY);
+	public static final Book ATALEOFTWOCITIES = new Book("A Tale of Two Cities", "Charles Dickens", 300, LiteraryGenre.FANTASTIC);
+	public static final Book LORDOFTHERINGS = new Book("The Lord of the Rings", "J.R.R. Tolkien", 500, LiteraryGenre.EPIC);
+	public static final Book HARRYPOTTER1 = new Book("Harry Potter and the Sorcerer’s Stone", "J.K. Rowling", 200, LiteraryGenre.FANTASTIC);
+	public static final Book DAVINCICODE = new Book("The Da Vinci Code", "Dan Brown", 300, LiteraryGenre.FANTASTIC);
+	public static final Book ILIUM = new Book("Ilium", "Dan Simmons", 600, LiteraryGenre.FANTASTIC);
+
+
 
 	public static final Library NATIONAL_LIBRARY_MONTREUIL = new Library(0L, Type.Nationale,
 			new Address(93, "Rue des Montreuil", 93100, "Montreuil"), new Director("Romain", "NOEL"));
