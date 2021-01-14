@@ -1,4 +1,4 @@
-package fr.training.spring.library;
+package Domain;
 
 import javax.persistence.*;
 

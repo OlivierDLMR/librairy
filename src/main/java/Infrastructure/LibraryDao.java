@@ -1,7 +1,9 @@
-package fr.training.spring.library;
+package Infrastructure;
 
 import java.util.List;
 
+import Domain.Library;
+import Domain.Type;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

@@ -1,4 +1,4 @@
-package fr.training.spring.library;
+package Domain;
 
 public enum Type {
 

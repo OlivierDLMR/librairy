@@ -1,7 +1,10 @@
-package fr.training.spring.library;
+package Exposition;
 
 import java.util.List;
 
+import Application.LibraryService;
+import Domain.Library;
+import Domain.Type;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;

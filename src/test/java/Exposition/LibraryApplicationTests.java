@@ -1,9 +1,13 @@
-package fr.training.spring.library;
+package Exposition;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Optional;
 
+import Domain.Director;
+import Domain.Library;
+import Domain.Type;
+import Infrastructure.LibraryDao;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -16,11 +20,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import fr.training.spring.library.Address;
-import fr.training.spring.library.Director;
-import fr.training.spring.library.Library;
-import fr.training.spring.library.LibraryDao;
-import fr.training.spring.library.Type;
+import Domain.Address;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @DisplayName("tp-spring-0")
