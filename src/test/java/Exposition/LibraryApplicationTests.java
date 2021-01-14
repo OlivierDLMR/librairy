@@ -148,8 +148,8 @@ class LibraryApplicationTests {
 					HttpMethod.PUT, new HttpEntity<>(SCHOOL_LIBRARY_PARIS), String.class);
 
 			// --------------- Then ---------------
-			assertThat(response.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
-			assertThat(response.getBody()).contains("LIBRARY NOT FOUND");
+			assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
+			assertThat(response.getBody()).contains("LIBRARY NOT FOUND----ERR_0001");
 		}
 	}
 
