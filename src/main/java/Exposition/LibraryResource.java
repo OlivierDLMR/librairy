@@ -24,6 +24,12 @@ public class LibraryResource {
 
     @PostMapping("/libraries")
     @ResponseStatus(HttpStatus.CREATED)
+    public Long createLibrary(@RequestBody final LibraryDTO libraryDTO) {
+        return libraryService.create(LibraryAdapter.transformToLibrary(libraryDTO));
+    }
+
+    @PostMapping("/libraries")
+    @ResponseStatus(HttpStatus.CREATED)
     public Long createLibrary(@RequestBody final Library library) {
         return libraryService.create(library);
     }

@@ -1,4 +1,4 @@
-package Exposition;
+package fr.training.spring.library;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

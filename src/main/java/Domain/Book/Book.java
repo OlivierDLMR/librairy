@@ -7,8 +7,8 @@ import javax.persistence.*;
 public class Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//génére automatique un ID
+    @Column(name = "ID")// nomme la colonne
     private Long id;
 
     @Column(name = "TITLE")
