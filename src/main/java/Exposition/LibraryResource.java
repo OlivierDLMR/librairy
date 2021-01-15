@@ -28,28 +28,23 @@ public class LibraryResource {
         return libraryService.create(LibraryAdapter.transformToLibrary(libraryDTO));
     }
 
-    @PostMapping("/libraries")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Long createLibrary(@RequestBody final Library library) {
-        return libraryService.create(library);
-    }
-
     @GetMapping("/libraries/{libraryId}")
     @ResponseStatus(HttpStatus.OK)
-    public Library detailLibrary(@PathVariable("libraryId") final Long libraryId) {
-        return libraryService.obtain(libraryId);
+    public LibraryDTO detailLibrary(@PathVariable("libraryId") final Long libraryId) {
+        return LibraryAdapter.adaptToDto(libraryService.obtain(libraryId));
     }
 
     @GetMapping("/libraries")
     @ResponseStatus(HttpStatus.OK)
-    public List<Library> listAllLibrairies() {
-        return libraryService.listAll();
+    public List<LibraryDTO> listAllLibrairies() {
+        return LibraryAdapter.adaptToDtoList(libraryService.listAll());
     }
 
     @PutMapping("/libraries/{libraryId}")
     @ResponseStatus(HttpStatus.OK)
-    public void updateLibrary(@PathVariable("libraryId") final Long libraryId, @RequestBody final Library library) {
-        libraryService.update(libraryId, library);
+    public void updateLibrary(@PathVariable("libraryId") final Long libraryId,
+                              @RequestBody final LibraryDTO libraryDTO) {
+        libraryService.update(libraryId, LibraryAdapter.transformToLibrary(libraryDTO));
     }
 
     @DeleteMapping("/libraries/{libraryId}")
@@ -60,13 +55,14 @@ public class LibraryResource {
 
     @GetMapping("/libraries/type/{type}")
     @ResponseStatus(HttpStatus.OK)
-    public List<Library> listAllLibrairiesByType(@PathVariable("type") final Type type) {
-        return libraryService.listAllByType(type);
+    public List<LibraryDTO> listAllLibrairiesByType(@PathVariable("type") final Type type) {
+        return LibraryAdapter.adaptToDtoList(libraryService.listAllByType(type));
     }
 
     @GetMapping("/libraries/director/surname/{surname}")
     @ResponseStatus(HttpStatus.OK)
-    public List<Library> listAllLibrairiesByDirectorName(@PathVariable("surname") final String surname) {
-        return libraryService.listAllByDirectorName(surname);
+    public List<LibraryDTO> listAllLibrairiesByDirectorName(@PathVariable("surname") final String surname) {
+        return LibraryAdapter.adaptToDtoList(libraryService.listAllByDirectorName(surname));
     }
+
 }

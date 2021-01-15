@@ -31,7 +31,8 @@ public class Book {
 
     private Book() {}
 
-    public Book(String title, String isbn, String author, int numberOfPage, LiteraryGenre literaryGenre) {
+    public Book(final Long id,String title, String isbn, String author, int numberOfPage, LiteraryGenre literaryGenre) {
+        this.id = id;
         this.title = title;
         this.isbn = isbn;
         this.author = author;

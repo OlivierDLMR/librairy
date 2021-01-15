@@ -3,6 +3,7 @@ package Application;
 import java.util.List;
 
 import Domain.Library;
+import Domain.LibraryRepository;
 import Domain.Type;
 import Infrastructure.LibraryDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,37 +15,36 @@ import org.springframework.transaction.annotation.Transactional;
 public class LibraryService {
 
     @Autowired
-    private LibraryDao libraryDAO;
+    private LibraryRepository libraryRepository;
 
     public Long create(final Library newLibrary) {
-        final Library library = libraryDAO.save(newLibrary);
-        return library.getId();
+        return libraryRepository.save(newLibrary);
     }
 
     public Library obtain(final Long id) {
-        return libraryDAO.findById(id).orElseThrow(() -> new RuntimeException("LIBRARY NOT FOUND"));
+        return libraryRepository.get(id);
     }
 
     public List<Library> listAll() {
-        return libraryDAO.findAll();
+        return libraryRepository.findAll();
     }
 
     public void update(final Long id, final Library libraryWithNewInformations) {
         final Library library = obtain(id);
         library.update(libraryWithNewInformations);
-        libraryDAO.save(library);
+        libraryRepository.save(library);
     }
 
     public void remove(final Long id) {
         final Library library = obtain(id);
-        libraryDAO.delete(library);
+        libraryRepository.delete(library);
     }
 
     public List<Library> listAllByType(final Type type) {
-        return libraryDAO.findByType(type);
+        return libraryRepository.findLibraryByType(type);
     }
 
     public List<Library> listAllByDirectorName(final String surname) {
-        return libraryDAO.searchByDirectorNameQuery(surname);
+        return libraryRepository.findLibraryByDirectorSurname(surname);
     }
 }

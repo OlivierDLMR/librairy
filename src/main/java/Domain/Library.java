@@ -5,25 +5,25 @@ import Domain.Book.Book;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity(name = "LIBRARY")
+//@Entity(name = "LIBRARY")
 public class Library {
-    @Id
-    @GeneratedValue
-    @Column(name = "ID")
+    //@Id
+    //@GeneratedValue
+    //@Column(name = "ID")
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "TYPE")
+    //@Enumerated(EnumType.STRING)
+    //@Column(name = "TYPE")
     private Type type;
 
-    @Embedded
+   // @Embedded
     private Address address;
 
-    @Embedded
+    //@Embedded
     private Director director;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    @JoinColumn(name = "LIBRARY_ID", referencedColumnName = "ID")
+    //@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    //@JoinColumn(name = "LIBRARY_ID", referencedColumnName = "ID")
     private List<Book> books;
 
     public Library() {}
