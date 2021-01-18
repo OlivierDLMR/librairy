@@ -1,5 +1,6 @@
 package Infrastructure;
 
+import Domain.DDD.DDD;
 import Domain.Library;
 import Domain.LibraryRepository;
 import Domain.Type;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@DDD.RepositoryImpl
 @Repository
 public class LibraryRepositoryImpl implements LibraryRepository {
 

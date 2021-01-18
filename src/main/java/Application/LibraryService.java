@@ -18,14 +18,17 @@ public class LibraryService {
     private LibraryRepository libraryRepository;
 
     public Long create(final Library newLibrary) {
+
         return libraryRepository.save(newLibrary);
     }
 
     public Library obtain(final Long id) {
+
         return libraryRepository.get(id);
     }
 
     public List<Library> listAll() {
+
         return libraryRepository.findAll();
     }
 

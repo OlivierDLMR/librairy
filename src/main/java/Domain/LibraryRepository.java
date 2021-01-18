@@ -1,7 +1,10 @@
 package Domain;
 
+import Domain.DDD.DDD;
+
 import java.util.List;
 
+@DDD.Repository
 public interface LibraryRepository {
 
     Long save(Library library);

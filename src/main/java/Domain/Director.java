@@ -1,10 +1,14 @@
 package Domain;
 
 
+import Domain.DDD.DDD;
 import Domain.exception.ErrorCodes;
 import Domain.exception.ValidationException;
 import org.springframework.util.StringUtils;
 
+import java.util.Objects;
+
+@DDD.ValueObject
 public class Director {
 
 
@@ -41,4 +45,36 @@ public class Director {
     public void setName(String name) {
         this.name = name;
     }
+
+
+    @Override
+    public boolean equals(final Object obj){
+        if (this == obj){
+            return true;
+        }
+        if (obj == null){
+            return false;
+        }
+        if (!(obj instanceof Director)){
+            return false;
+        }
+        final Director other = (Director) obj;
+        return Objects.equal(getName(), other.getName()) && //
+                Objects.equal(getSurname(), other.getSurname());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getName(), getSurname());
+    }
+
+
+
+
+
+
+
+
+
+
 }

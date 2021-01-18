@@ -1,7 +1,7 @@
 package Domain.Book;
 
 import javax.persistence.*;
-
+import java.util.Objects;
 
 public class Book {
 
@@ -81,4 +81,31 @@ public class Book {
     public void setLiteraryGenre(LiteraryGenre literaryGenre) {
         this.literaryGenre = literaryGenre;
     }
+
+
+
+    @Override
+    public boolean equals(final  Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Book)){
+            return false;
+        }
+        final Book other = (Book) obj;
+        return Objects.equals(getId(), other.getId());
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hashCode(getId());
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s{id:%s}", this.getClass().getSimpleName(),id);
+    }
+
+
+
 }

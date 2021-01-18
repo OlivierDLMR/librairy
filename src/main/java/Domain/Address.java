@@ -1,5 +1,10 @@
 package Domain;
 
+import Domain.DDD.DDD;
+
+import java.util.Objects;
+
+@DDD.ValueObject
 public class Address {
 
 
@@ -54,4 +59,38 @@ public class Address {
     public void setCity(String city) {
         this.city = city;
     }
+
+
+
+
+    @Override
+    public boolean equals(final Object obj){
+        if(this == obj) {
+            return true;
+        }
+        if (obj == null){
+            return false;
+        }
+        if (!(obj instanceof Address)){
+            return false;
+        }
+        final Address other = (Address) obj;
+        return Objects.equals(getNumber(), other.getNumber()) &&
+                Objects.equals(getStreet(), other.getStreet())&&
+                Objects.equals(getPostalCode(), other.getPostalCode()) &&
+                Objects.equals(getCity(), other.getCity());
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hashCode(getNumber(), getStreet(), getPostalCode(), getCity());
+    }
+
+
+
+
+
+
+
+
 }
