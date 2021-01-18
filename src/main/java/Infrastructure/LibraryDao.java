@@ -13,6 +13,9 @@ public interface LibraryDao extends JpaRepository<Library, Long> {
 
     List<Library> findByDirector_Surname(String surname);
 
+    void delete(LibraryJPA libraryJPA);
+
+
 //    @Query("SELECT library FROM LIBRARY library WHERE library.director.surname = ?1")
 //    List<Library> searchByDirectorNameQuery(String surname);
 //

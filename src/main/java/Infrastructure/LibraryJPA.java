@@ -7,6 +7,7 @@ import Domain.Library;
 import Domain.Type;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,7 +44,7 @@ import java.util.stream.Collectors;
 
         @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
         @JoinColumn(name="LIBRARY_ID", referencedColumnName = "ID")
-        private List<BokkJPA.BookJPA> books;
+        private List<BookJPA> books;
 
         private LibraryJPA() {}
 
@@ -56,7 +57,10 @@ import java.util.stream.Collectors;
             addressCity = library.getAddress().getCity();
             directorSurname = library.getDirector().getSurname();
             directorName = library.getDirector().getName();
-            books = library.getBooks().stream().map(BokkJPA.BookJPA::new).collect(Collectors.toList());
+            books = new ArrayList<>();
+            for (final Book book: library.getBooks()) {
+                books.add(new BookJPA(book));
+            }
         }
 
         public Library toLibrary() {
@@ -101,7 +105,7 @@ import java.util.stream.Collectors;
             return directorName;
         }
 
-        public List<BokkJPA.BookJPA> getBooks() {
+        public List<BookJPA> getBooks() {
             return books;
         }
     }

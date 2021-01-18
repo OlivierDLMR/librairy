@@ -12,7 +12,7 @@ public class BookDTO {
     @JsonProperty
     final String author;
     @JsonProperty
-    final int  umberOfPage;
+    final int  numberOfPage;
     @JsonProperty
     final LiteraryGenre literaryGenre;
 
@@ -21,7 +21,7 @@ public class BookDTO {
         this.isbn = isbn;
         this.title = title;
         this.author = author;
-        this.umberOfPage = umberOfPage;
+        this.numberOfPage = umberOfPage;
         this.literaryGenre = literaryGenre;
     }
 }

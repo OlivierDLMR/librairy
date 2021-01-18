@@ -5,7 +5,6 @@ import Domain.Book.LiteraryGenre;
 
 import javax.persistence.*;
 
-public class BokkJPA {
 
     @Entity
     @Table(name = "BOOK")
@@ -32,8 +31,6 @@ public class BokkJPA {
         @Column(name = "LITERARY_GENRE")
         private LiteraryGenre literaryGenre;
 
-        private BookJPA() {
-        }
 
         public BookJPA(final Book book) {
             id = book.getId();
@@ -42,6 +39,10 @@ public class BokkJPA {
             author = book.getAuthor();
             numberOfPage = book.getNumberOfPage();
             literaryGenre = book.getLiteraryGenre();
+        }
+
+        public BookJPA() {
+
         }
 
         public Long getId() {
@@ -68,4 +69,4 @@ public class BokkJPA {
             return literaryGenre;
         }
     }
-}
+

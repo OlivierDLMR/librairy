@@ -34,7 +34,7 @@ public class DatabaseTestHelper {
     public static final Book ILIUM = new Book(null, "9780380817924", "Ilium", "Dan Simmons", 600,
             LiteraryGenre.FANTASTIC);
     public static final Book SPRING_IN_ACTION = new Book(null, "1617294942", "Spring in Action", "Craig Walls", 310,
-            LiteraryGenre.TECNICAL);
+            LiteraryGenre.TECHNICAL);
 
     public static final Library NATIONAL_LIBRARY_MONTREUIL = new Library(null, Type.Nationale,
             new Address(1, "Rue de Montreuil1", 93101, "Montreuil"), new Director("Romain", "NOEL"), Arrays.asList());

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import org.slf4j.Logger;
 
-@ControllerAdvice(basePackages = "fr.training.spring.library")
+@ControllerAdvice//(basePackages = "fr.training.spring.library")
 public class LibraryResourceExceptionHandler {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LibraryResourceExceptionHandler.class);

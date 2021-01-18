@@ -2,32 +2,30 @@ package Domain.Book;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "BOOK")
+//@Entity
+//@Table(name = "BOOK")
 public class Book {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)//génére automatique un ID
-    @Column(name = "ID")// nomme la colonne
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)//génére automatique un ID
+    //@Column(name = "ID")// nomme la colonne
     private Long id;
 
-    @Column(name = "TITLE")
+    //@Column(name = "TITLE")
     private String title;
 
-    @Column(name = "ISBN")
+    //@Column(name = "ISBN")
     private String isbn;
 
-    @Column(name = "AUTHOR")
+    //@Column(name = "AUTHOR")
     private String author;
 
-    @Column(name = "NUMBER_OF_PAGE")
+    //@Column(name = "NUMBER_OF_PAGE")
     private int numberOfPage;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "LITERARY_GENRE")
+    //@Enumerated(EnumType.STRING)
+    //@Column(name = "LITERARY_GENRE")
     private LiteraryGenre literaryGenre;
-
-
 
     private Book() {}
 

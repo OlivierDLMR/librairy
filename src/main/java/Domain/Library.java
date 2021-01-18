@@ -28,13 +28,15 @@ public class Library {
 
     public Library() {}
 
-    public Library(final Long id, final Type type, final Address address, final Director director) {
+    public Library(final Long id, final Type type, final Address address, final Director director, List<Book> books) {
         this.id = id;
         this.type = type;
         this.address = address;
         this.director = director;
         this.books = books;
     }
+
+
 
     public void update(final Library libraryWithNewInformation) {
         type = libraryWithNewInformation.getType();
