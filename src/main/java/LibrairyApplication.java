@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class LibrairyApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(LibrairyApplication.class, args);
 	}
 

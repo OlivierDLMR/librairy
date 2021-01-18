@@ -1,21 +1,17 @@
 package Domain;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-
-//@Embeddable
 public class Address {
 
-    //@Column(name = "ADDRESS_NUMBER")
+
     private int number;
 
-   // @Column(name = "ADDRESS_SREET")
+
     private String street;
 
-   // @Column(name = "ADDRESS_POSTALCODE")
+
     private int postalCode;
 
-    //@Column(name = "ADDRESS_CITY")
+
     private String city;
 
     public Address() {}

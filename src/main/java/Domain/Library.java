@@ -2,28 +2,24 @@ package Domain;
 
 import Domain.Book.Book;
 
-import javax.persistence.*;
+
 import java.util.List;
 
-//@Entity(name = "LIBRARY")
+
 public class Library {
-    //@Id
-    //@GeneratedValue
-    //@Column(name = "ID")
+
     private Long id;
 
-    //@Enumerated(EnumType.STRING)
-    //@Column(name = "TYPE")
+
     private Type type;
 
-   // @Embedded
+
     private Address address;
 
-    //@Embedded
+
     private Director director;
 
-    //@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    //@JoinColumn(name = "LIBRARY_ID", referencedColumnName = "ID")
+
     private List<Book> books;
 
     public Library() {}
@@ -34,6 +30,7 @@ public class Library {
         this.address = address;
         this.director = director;
         this.books = books;
+        validate();
     }
 
 
@@ -42,6 +39,11 @@ public class Library {
         type = libraryWithNewInformation.getType();
         address = libraryWithNewInformation.getAddress();
         director = libraryWithNewInformation.getDirector();
+        validate();
+    }
+
+    private void validate() {
+        director.validate();
     }
 
 

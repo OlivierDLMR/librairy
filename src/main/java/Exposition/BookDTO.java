@@ -17,11 +17,11 @@ public class BookDTO {
     final LiteraryGenre literaryGenre;
 
 
-    public BookDTO(String isbn, String title, String author, int umberOfPage, LiteraryGenre literaryGenre) {
+    public BookDTO(String isbn, String title, String author, int numberOfPage, LiteraryGenre literaryGenre) {
         this.isbn = isbn;
         this.title = title;
         this.author = author;
-        this.numberOfPage = umberOfPage;
+        this.numberOfPage = numberOfPage;
         this.literaryGenre = literaryGenre;
     }
 }

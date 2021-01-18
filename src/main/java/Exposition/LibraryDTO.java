@@ -3,6 +3,7 @@ package Exposition;
 import Domain.Type;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Collections;
 import java.util.List;
 
 public class LibraryDTO {
@@ -24,6 +25,6 @@ public class LibraryDTO {
         this.type = type;
         this.addressDTO = addressDTO;
         this.directorDTO = directorDTO;
-        this.bookDTOList = bookDTOList;
+        this.bookDTOList = Collections.unmodifiableList(bookDTOList);
     }
 }

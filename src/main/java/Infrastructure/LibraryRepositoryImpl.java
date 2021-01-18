@@ -20,25 +20,20 @@ public class LibraryRepositoryImpl implements LibraryRepository {
     private LibraryDao libraryDAO;
 
     @Override
-    public Long save(final Library library) {
-        final LibraryJPA libraryJPA = libraryDAO.save(new LibraryJPA(library));
-        return libraryJPA.getId();
-    }
-
-    @Override
     public Library get(final Long id) {
         return libraryDAO.findById(id).map(LibraryJPA::toLibrary).orElseThrow(
                 () -> new NotFoundException("Could not obtain library " + id, ErrorCodes.LIBRARY_NOT_FOUND));
     }
 
     @Override
+    public Long save(final Library library) {
+        final LibraryJPA libraryJPA = libraryDAO.save(new LibraryJPA(library));
+        return libraryJPA.getId();
+    }
+
+    @Override
     public List<Library> findAll() {
-        final List<LibraryJPA> libraryJPAs = libraryDAO.findAll();
-        final List<Library> result = new ArrayList<Library>();
-        for (final LibraryJPA libraryJPA : libraryJPAs) {
-            result.add(libraryJPA.toLibrary());
-        }
-        return result;
+        return libraryDAO.findAll().stream().map(LibraryJPA::toLibrary).collect(Collectors.toList());
     }
 
     @Override
@@ -47,15 +42,12 @@ public class LibraryRepositoryImpl implements LibraryRepository {
     }
 
     @Override
-    public List<Library> findLibraryByType(Type type) {
+    public List<Library> findLibraryByType(final Type type) {
         return libraryDAO.findByType(type);
     }
 
     @Override
-    public List<Library> findLibraryByDirectorSurname(String surname) {
+    public List<Library> findLibraryByDirectorSurname(final String surname) {
         return libraryDAO.findByDirector_Surname(surname);
     }
-
-
-
 }
