@@ -64,26 +64,21 @@ public class Address {
 
 
     @Override
-    public boolean equals(final Object obj){
-        if(this == obj) {
+    public boolean equals(final Object o) {
+        if (this == o) {
             return true;
         }
-        if (obj == null){
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        if (!(obj instanceof Address)){
-            return false;
-        }
-        final Address other = (Address) obj;
-        return Objects.equals(getNumber(), other.getNumber()) &&
-                Objects.equals(getStreet(), other.getStreet())&&
-                Objects.equals(getPostalCode(), other.getPostalCode()) &&
-                Objects.equals(getCity(), other.getCity());
+        final Address address = (Address) o;
+        return number == address.number && postalCode == address.postalCode && street.equals(address.street)
+                && city.equals(address.city);
     }
 
     @Override
-    public int hashCode(){
-        return Objects.hashCode(getNumber(), getStreet(), getPostalCode(), getCity());
+    public int hashCode() {
+        return Objects.hash(number, street, postalCode, city);
     }
 
 

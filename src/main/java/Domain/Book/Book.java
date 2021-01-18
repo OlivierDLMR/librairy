@@ -85,25 +85,32 @@ public class Book {
 
 
     @Override
-    public boolean equals(final  Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (!(obj instanceof Book)){
+    public boolean equals(final Object obj) {
+        if (obj == null) {
             return false;
         }
-        final Book other = (Book) obj;
-        return Objects.equals(getId(), other.getId());
+
+        if (!this.getClass().isAssignableFrom(obj.getClass())) {
+            return false;
+        }
+
+        final Book that = this.getClass().cast(obj);
+
+        return that.id.equals(id);
     }
 
     @Override
-    public int hashCode(){
-        return Objects.hashCode(getId());
+    public int hashCode() {
+        return id.hashCode();
     }
 
     @Override
     public String toString() {
-        return String.format("%s{id:%s}", this.getClass().getSimpleName(),id);
+        return String.format("%s{id:%s)", this.getClass().getSimpleName(), id);
+    }
+
+    public void assignLiteraryGenre(final LiteraryGenre literaryGenre ) {
+        this.literaryGenre = literaryGenre;
     }
 
 

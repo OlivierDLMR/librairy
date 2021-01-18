@@ -48,24 +48,20 @@ public class Director {
 
 
     @Override
-    public boolean equals(final Object obj){
-        if (this == obj){
+    public boolean equals(final Object o) {
+        if (this == o) {
             return true;
         }
-        if (obj == null){
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        if (!(obj instanceof Director)){
-            return false;
-        }
-        final Director other = (Director) obj;
-        return Objects.equal(getName(), other.getName()) && //
-                Objects.equal(getSurname(), other.getSurname());
+        final Director director = (Director) o;
+        return surname.equals(director.surname) && name.equals(director.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(getName(), getSurname());
+        return Objects.hash(surname, name);
     }
 
 

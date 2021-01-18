@@ -7,7 +7,7 @@ import Domain.Type;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-public interface LibraryDao extends JpaRepository<Library, Long> {
+public interface LibraryDao extends JpaRepository<LibraryJPA, Long> {
 
     List<Library> findByType(Type type);
 

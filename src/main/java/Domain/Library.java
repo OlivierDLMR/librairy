@@ -5,7 +5,7 @@ import Domain.DDD.DDD;
 
 
 import java.util.List;
-import java.util.Objects;
+
 
 @DDD.Entity
 public class Library {
@@ -92,27 +92,30 @@ public class Library {
 
     @Override
     public boolean equals(final Object obj) {
-        if (this == obj) {
-            return true;
-        }
         if (obj == null) {
             return false;
         }
-        if (!(obj instanceof Library)) {
+        if (!this.getClass().isAssignableFrom(obj.getClass())) {
             return false;
         }
-        final Library other = (Library) obj;
-        return Objects.equals(getId(), other.getId());
+
+        final Library that = this.getClass().cast(obj);
+
+        return that.id.equals(id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(getId());
+        return id.hashCode();
     }
 
     @Override
     public String toString() {
         return String.format("%s{id:%s)", this.getClass().getSimpleName(), id);
+    }
+
+    public void addBook(final Book book) {
+        books.add(book);
     }
 
 }

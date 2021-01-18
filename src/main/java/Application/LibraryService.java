@@ -2,6 +2,10 @@ package Application;
 
 import java.util.List;
 
+import Domain.Book.Book;
+import Domain.Book.BookRepository;
+import Domain.Book.LiteraryGenre;
+import Domain.DDD.DDD;
 import Domain.Library;
 import Domain.LibraryRepository;
 import Domain.Type;
@@ -9,7 +13,7 @@ import Infrastructure.LibraryDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+@DDD.ApplicationService
 @Transactional
 @Service
 public class LibraryService {
@@ -17,18 +21,18 @@ public class LibraryService {
     @Autowired
     private LibraryRepository libraryRepository;
 
-    public Long create(final Library newLibrary) {
+    @Autowired
+    private BookRepository bookRepository;
 
+    public Long create(final Library newLibrary) {
         return libraryRepository.save(newLibrary);
     }
 
     public Library obtain(final Long id) {
-
         return libraryRepository.get(id);
     }
 
     public List<Library> listAll() {
-
         return libraryRepository.findAll();
     }
 
@@ -50,4 +54,13 @@ public class LibraryService {
     public List<Library> listAllByDirectorName(final String surname) {
         return libraryRepository.findLibraryByDirectorSurname(surname);
     }
+
+    public void referenceBook(final Long libraryId, final String isbn, final LiteraryGenre literaryGenre) {
+        final Book book = bookRepository.searchBook(isbn );
+        book.assignLiteraryGenre(literaryGenre);
+        final Library library = obtain(libraryId);
+        library.addBook(book);
+        libraryRepository.save(library);
+    }
+
 }
