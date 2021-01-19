@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @DDD.RepositoryImpl
-@Repository
+@DDD.Repository
 public class LibraryRepositoryImpl implements LibraryRepository {
 
     @Autowired
